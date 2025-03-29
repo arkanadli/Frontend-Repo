@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa</title>
+</head>
+<body>
+    <h1>Data Mahasiswa</h1>
+    <ul id="student-list"></ul>
+
+    <script>
+        fetch("http://backend-server/students")
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById("student-list");
+                data.forEach(student => {
+                    const li = document.createElement("li");
+                    li.textContent = `${student.nrp} - ${student.nama}`;
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    </script>
+</body>
+</html>
