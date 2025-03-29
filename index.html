@@ -10,7 +10,7 @@
     <ul id="student-list"></ul>
 
     <script>
-        fetch("http://backend-server/students")
+        fetch("http://10.0.2.188/students")
             .then(response => response.json())
             .then(data => {
                 const list = document.getElementById("student-list");
